@@ -1,19 +1,32 @@
-<script>
-	import Header from './Header.svelte';
+<script lang="ts">
+	import Header from './Header_DG.svelte';
+	import Sidebar from './Sidebar.svelte';
+	import { globalStore} from './global_store.svelte';
 	import './styles.css';
-	
+	import type { TopicGroupings } from './types';
+
+	export let data: TopicGroupings;
+	globalStore.set(data)
+
+	console.log('server data:', data)
 </script>
 
 <div class="app">
-	<Header />
+	<div class="" style="width: 80%; margin: 0 auto"><Header /></div>
+	<div style="width: 80%; margin: 0 auto" class="grid grid-cols-2 gap-10">
+		<div>
+			<main style="padding: 0">
+				<slot />
+			</main>
+		</div>
+		<div>
+			<Sidebar />
+		</div>
+	</div>
 
-	<main>
-		<slot />
-	</main>
-
-	<footer>
+	<!-- <footer>
 		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+	</footer> -->
 </div>
 
 <style>

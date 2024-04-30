@@ -1,59 +1,25 @@
-<script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+<script lang="ts">
+  import {globalStore} from './global_store.svelte'
+  
+	//TODO: make topic import automatic (on site build)
+  // dynamic page for posts and topic list? maybe
+  // finish setting up mdsvex (need to add preprocessor to webpack config or rollup)
+  // deploy to github
+
+	//Tailwind CSS: https://v1.tailwindcss.com/components
+
+  /*
+  
+  
+*/
+  
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+<div class="grid grid-cols-2 gap-6">
+	{#each $globalStore.topics as topic}
+		<a href={topic.route} style="color: inherit">
+			<div class="p-6 shadow bg-white rounded-lg">{topic.name}</div>
+		</a>
+	{/each}
+</div>
