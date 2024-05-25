@@ -3,7 +3,7 @@
   
   // TODO: 
   // deploy to github
-  // make topic pages
+  // fix post layout
   // update readme - Static rendering - parsing at build, how to add pages
 // display last updated
 

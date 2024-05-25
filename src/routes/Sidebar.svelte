@@ -8,7 +8,12 @@
 		<a href={post.route} style="color: inherit">
 			<div class="p-6 shadow bg-white rounded-lg">
 				{post.name}
-				<p class="text-xs text-gray-400">Last Updated: {post.lastUpdated}</p>
+				<p class="text-xs text-gray-400">
+					{#each post.topicLabels as label}
+						#{label}
+					{/each}
+					Last Updated: {post.lastUpdated}
+				</p>
 			</div>
 		</a>
 	{/each}
