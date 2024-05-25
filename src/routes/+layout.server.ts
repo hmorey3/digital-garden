@@ -14,7 +14,7 @@ export async function load(): Promise<GlobalData> {
         featuredPosts: featuredPosts,
         topics: topicLabels.map(topicLabel => ({
             name: topicLabel,
-            route: `/topic/${createSlug(topicLabel)}`
+            route: `${CONFIG.pathToTopic}/${createSlug(topicLabel)}`
         })),
         posts
     }
