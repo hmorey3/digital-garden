@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
 	import { writable } from 'svelte/store';
-	import type { TopicGroupings } from './types';
+	import type { GlobalData } from './types';
 
-    const initTopicGroupings: TopicGroupings= {
+    const initTopicGroupings: GlobalData= {
         featuredPosts: [],
         topics: []
     }

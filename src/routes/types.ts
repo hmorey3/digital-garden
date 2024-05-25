@@ -1,22 +1,20 @@
 export type TopicLabels = 'App Engineering' | 'TableTop RPGs'
 
-export type TopicRoute = {
+export type TopicMeta = {
     name: string,
     route: string
 }
 
-export type PostRoute = {route: string} & Post
-
-export type TopicGroupings = {
-    featuredPosts: Array<PostRoute>, // TODO finish propagating this type change
-    topics: Array<TopicRoute>
+export type GlobalData = {
+    featuredPosts: Array<PostMeta>,
+    topics: Array<TopicMeta>,
+    posts: Array<PostMeta>
 }
 
-export type Post = {
+export type PostMeta = {
     featured?: boolean,
-    lastUpdated: Date
+    lastUpdated: string
     name: string,
-    slug: string,
-    content: string,
+    route: string,
     topicLabels: Array<string>
 }

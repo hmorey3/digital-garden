@@ -3,12 +3,12 @@
 	import Sidebar from './Sidebar.svelte';
 	import { globalStore} from './global_store.svelte';
 	import './styles.css';
-	import type { TopicGroupings } from './types';
+	import type { GlobalData } from './types';
 
-	export let data: TopicGroupings;
+	export let data: GlobalData;
 	globalStore.set(data)
 
-	console.log('server data:', data)
+	console.log('Layout loaded pre-rendered data:', data)
 </script>
 
 <div class="app">
