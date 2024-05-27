@@ -35,7 +35,7 @@ function getTopicLabels(posts: Array<PostMeta>): Array<string> {
 async function getPosts(): Promise<Array<PostMeta>> {
 
     const __dirname = dirname(fileURLToPath(import.meta.url));
-    var pathToPosts = path.join(__dirname, CONFIG.pathToPostDir);
+    var pathToPosts = path.join(__dirname, CONFIG.pathToPostMdDir);
     var postPageNames: Array<string> = fs.readdirSync(pathToPosts);
 
     const parsedPosts: Array<PostMeta> = postPageNames.map(pageName => {
@@ -50,7 +50,7 @@ async function getPosts(): Promise<Array<PostMeta>> {
             return {
                 featured: !!(metadata.featured?.toLowerCase() == "true"),
                 lastUpdated: metadata.lastUpdated,
-                route: `/posts/${pageName}`,
+                route: `${CONFIG.pathToPostMdDir}/${pageName}`,
                 name: metadata.name,
                 topicLabels: metadata.topicLabels.split(',')
             }
