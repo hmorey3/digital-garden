@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { siteContent, pageTitle } from '../components/global_store.svelte';
-	import Post from '../components/post.svelte'
+	import { siteContent, pageTitle } from '../lib/global_store.svelte';
+	import Post from '../lib/post.svelte'
 	pageTitle.set("Featured Posts")
 
 	// TODO:

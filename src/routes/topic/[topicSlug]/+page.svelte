@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { pageTitle } from '../../../components/global_store.svelte';
-	import Post from '../../../components/post.svelte'
+	import { pageTitle } from '../../../lib/global_store.svelte';
+	import Post from '../../../lib/post.svelte'
 
     export let data
     $: posts = data.postsWithLabel ?? []
