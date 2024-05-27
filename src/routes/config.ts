@@ -1,5 +1,6 @@
 export const CONFIG = {
     pathToPostMdDir: "/posts/md",
     pathToTopic: '/topic',
-    postFileName: "+page.svelte.md"
+    postFileName: "+page.svelte.md",
+    featuredKey: 'Featured'
 }

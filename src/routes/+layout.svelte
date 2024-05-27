@@ -1,20 +1,21 @@
 <script lang="ts">
-	import Header from './Header_DG.svelte';
-	import Sidebar from './Sidebar.svelte';
-	import { globalStore} from './global_store.svelte';
+	import Header from '../components/header.svelte';
+	import Sidebar from '../components/sidebar.svelte';
+	import { siteContent, pageTitle} from '../components/global_store.svelte';
 	import './styles.css';
-	import type { GlobalData } from './types';
+	import type { SiteContent } from './types';
 
-	export let data: GlobalData;
-	globalStore.set(data)
-
+	export let data: SiteContent;
+	siteContent.set(data)
 	console.log('Layout loaded pre-rendered data:', data)
+
 </script>
 
 <div class="app">
 	<div class="" style="width: 80%; margin: 0 auto"><Header /></div>
-	<div style="width: 80%; margin: 0 auto" class="grid grid-cols-2 gap-10">
-		<div>
+	<div style="width: 80%; margin: 0 auto" class="grid grid-cols-3 gap-5">
+		<div class="col-span-3 p-6 shadow bg-violet-400 text-white rounded-lg">{$pageTitle}</div>
+		<div class="col-span-2">
 			<main style="padding: 0">
 				<slot />
 			</main>
@@ -23,10 +24,6 @@
 			<Sidebar />
 		</div>
 	</div>
-
-	<!-- <footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer> -->
 </div>
 
 <style>

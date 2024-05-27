@@ -1,19 +1,19 @@
 <script lang="ts">
+	import { pageTitle } from '../../../components/global_store.svelte';
+	import Post from '../../../components/post.svelte'
 
     export let data
-    const posts = data.postsWithLabel ?? []
+    $: posts = data.postsWithLabel ?? []
+	$: pageTitle.set(data.topicName ?? "Error")
 </script>
+
+<svelte:head><title>{data.topicName} - Digital Garden</title></svelte:head>
 
 <div>
 	{#if data.postsWithLabel}
-		<p class="text-l text-black ">Topic: {data.topicName}</p>
-		<div class="grid grid-cols-2 gap-6">
+		<div class="grid grid-cols-1 gap-6">
 			{#each posts as post}
-				<a href={post.route} style="color: inherit">
-					<div class="p-6 shadow bg-white rounded-lg">
-						{post.name}
-					</div>
-				</a>
+				<Post post={post} />
 			{/each}
 		</div>
 	{:else}
