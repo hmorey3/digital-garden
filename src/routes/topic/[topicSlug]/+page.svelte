@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { pageTitle } from '../../../components/global_store.svelte';
 
     export let data
     const posts = data.postsWithLabel ?? []
+	pageTitle.set(data.topicName ?? "Error")
 </script>
 
 <svelte:head><title>{data.topicName} - Digital Garden</title></svelte:head>

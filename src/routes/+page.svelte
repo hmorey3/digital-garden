@@ -1,28 +1,33 @@
 <script lang="ts">
-  import {globalStore} from '../components/global_store.svelte'
-  
-  // TODO: 
-  // deploy to github
-  // update readme - Static rendering - parsing at build, how to add pages
-// display last updated
+	import { siteContent, pageTitle } from '../components/global_store.svelte';
+	pageTitle.set("Home")
+
+	// TODO:
+	// deploy to github
+	// update readme - Static rendering - parsing at build, how to add pages
+	// display last updated
 
 	//Tailwind CSS: https://v1.tailwindcss.com/components
 
-  /*
-  
+	/*
   
 */
-  
 </script>
 
 <svelte:head><title>Digital Garden</title></svelte:head>
 
+<div class="grid grid-cols-1 gap-6">
 
-<div class="grid grid-cols-2 gap-6">
-	{#each $globalStore.topics as topic}
-		<a href={topic.route} style="color: inherit">
+	{#each $siteContent.featuredPosts as post}
+		<a href={post.route} style="color: inherit">
 			<div class="p-6 shadow bg-white rounded-lg">
-				{topic.name}
+				{post.name}
+				<p class="text-xs text-gray-400">
+					{#each post.topicLabels as label}
+						#{label}
+					{/each}
+					Last Updated: {post.lastUpdated}
+				</p>
 			</div>
 		</a>
 	{/each}

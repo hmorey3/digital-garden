@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { PostMeta } from "../types";
-
     export let data: {metadata: PostMeta} | undefined
+    import { pageTitle} from '../../components/global_store.svelte';
+    pageTitle.set(data?.metadata.name ?? "Error")
 </script>
 
 <svelte:head>

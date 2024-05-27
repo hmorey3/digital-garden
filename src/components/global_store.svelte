@@ -1,11 +1,14 @@
 <script lang="ts" context="module">
 	import { writable } from 'svelte/store';
-	import type { GlobalData } from './types';
+	import type { GlobalData } from '../routes/types';
+
 
     const initTopicGroupings: GlobalData= {
         featuredPosts: [],
-        topics: []
+        topics: [],
+        posts: []
     }
 
-	export const globalStore = writable(initTopicGroupings);
+	export const siteContent = writable(initTopicGroupings);
+    export const pageTitle = writable('');
 </script>
