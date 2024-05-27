@@ -4,6 +4,8 @@
     const posts = data.postsWithLabel ?? []
 </script>
 
+<svelte:head><title>{data.topicName} - Digital Garden</title></svelte:head>
+
 <div>
 	{#if data.postsWithLabel}
 		<p class="text-l text-black ">Topic: {data.topicName}</p>

@@ -3,7 +3,6 @@
   
   // TODO: 
   // deploy to github
-  // fix post layout
   // update readme - Static rendering - parsing at build, how to add pages
 // display last updated
 
@@ -15,6 +14,8 @@
 */
   
 </script>
+
+<svelte:head><title>Digital Garden</title></svelte:head>
 
 
 <div class="grid grid-cols-2 gap-6">
