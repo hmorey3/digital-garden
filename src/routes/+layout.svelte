@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Header from './Header_DG.svelte';
-	import Sidebar from './Sidebar.svelte';
-	import { globalStore} from './global_store.svelte';
+	import Header from '../components/Header_DG.svelte';
+	import Sidebar from '../components/Sidebar.svelte';
+	import { globalStore} from '../components/global_store.svelte';
 	import './styles.css';
 	import type { GlobalData } from './types';
 

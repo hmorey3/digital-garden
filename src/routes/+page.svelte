@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {globalStore} from './global_store.svelte'
+  import {globalStore} from '../components/global_store.svelte'
   
   // TODO: 
   // deploy to github
