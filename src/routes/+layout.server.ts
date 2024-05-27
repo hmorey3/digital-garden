@@ -1,9 +1,8 @@
 import type { PostMeta, GlobalData } from "./types"
 import fs from 'fs'
 import path from 'path'
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 import { CONFIG } from "./config";
+import { base } from '$app/paths';
 
 export async function load(): Promise<GlobalData> {
     const posts: Array<PostMeta> = await getPosts()
@@ -14,7 +13,7 @@ export async function load(): Promise<GlobalData> {
         featuredPosts: featuredPosts,
         topics: topicLabels.map(topicLabel => ({
             name: topicLabel,
-            route: `${CONFIG.pathToTopic}/${createSlug(topicLabel)}`
+            route: `${base}${CONFIG.pathToTopic}/${createSlug(topicLabel)}`
         })),
         posts
     }
@@ -34,9 +33,8 @@ function getTopicLabels(posts: Array<PostMeta>): Array<string> {
 
 async function getPosts(): Promise<Array<PostMeta>> {
 
-    const __dirname = dirname(fileURLToPath(import.meta.url));
-    var pathToPosts = path.join(__dirname, CONFIG.pathToPostDir);
-    var postPageNames: Array<string> = fs.readdirSync(pathToPosts);
+    const pathToPosts = path.join('src/routes', CONFIG.pathToPostMdDir);
+    const postPageNames: Array<string> = fs.readdirSync(pathToPosts);
 
     const parsedPosts: Array<PostMeta> = postPageNames.map(pageName => {
         try {
@@ -50,12 +48,12 @@ async function getPosts(): Promise<Array<PostMeta>> {
             return {
                 featured: !!(metadata.featured?.toLowerCase() == "true"),
                 lastUpdated: metadata.lastUpdated,
-                route: `/posts/${pageName}`,
+                route: `${base}${CONFIG.pathToPostMdDir}/${pageName}`,
                 name: metadata.name,
                 topicLabels: metadata.topicLabels.split(',')
             }
         } catch(e) {
-            console.error("Error parsing post markdown file. Pagename: ", pageName);
+            console.error("Error parsing post markdown file. Pagename: ", pageName, e);
             throw e;
         }
     })
