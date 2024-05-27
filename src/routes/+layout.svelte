@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Header from '../components/header.svelte';
-	import Sidebar from '../components/sidebar.svelte';
-	import { siteContent, pageTitle} from '../components/global_store.svelte';
+	import Header from '../lib/header.svelte';
+	import Sidebar from '../lib/sidebar.svelte';
+	import { siteContent, pageTitle} from '../lib/global_store.svelte';
 	import './styles.css';
 	import type { SiteContent } from './types';
 
