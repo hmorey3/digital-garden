@@ -3,9 +3,9 @@
 	import Sidebar from '../components/sidebar.svelte';
 	import { siteContent, pageTitle} from '../components/global_store.svelte';
 	import './styles.css';
-	import type { GlobalData } from './types';
+	import type { SiteContent } from './types';
 
-	export let data: GlobalData;
+	export let data: SiteContent;
 	siteContent.set(data)
 	console.log('Layout loaded pre-rendered data:', data)
 

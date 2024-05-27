@@ -5,7 +5,7 @@ export type TopicMeta = {
     route: string
 }
 
-export type GlobalData = {
+export type SiteContent = {
     featuredPosts: Array<PostMeta>,
     topics: Array<TopicMeta>,
     posts: Array<PostMeta>

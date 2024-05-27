@@ -1,10 +1,10 @@
-import type { PostMeta, GlobalData } from "./types"
+import type { PostMeta, SiteContent } from "./types"
 import fs from 'fs'
 import path from 'path'
 import { CONFIG } from "./config";
 import { base } from '$app/paths';
 
-export async function load(): Promise<GlobalData> {
+export async function load(): Promise<SiteContent> {
     const posts: Array<PostMeta> = await getPosts()
     const topicLabels: Array<string> = getTopicLabels(posts)
     const featuredPosts: Array<PostMeta> = posts.filter(post => post.topicLabels.includes(CONFIG.featuredKey))
