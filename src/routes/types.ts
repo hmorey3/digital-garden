@@ -12,7 +12,6 @@ export type GlobalData = {
 }
 
 export type PostMeta = {
-    featured?: boolean,
     lastUpdated: string
     name: string,
     route: string,

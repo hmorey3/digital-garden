@@ -7,7 +7,8 @@ import { base } from '$app/paths';
 export async function load(): Promise<GlobalData> {
     const posts: Array<PostMeta> = await getPosts()
     const topicLabels: Array<string> = getTopicLabels(posts)
-    const featuredPosts: Array<PostMeta> = posts.filter(post => post.featured)
+    const featuredPosts: Array<PostMeta> = posts.filter(post => post.topicLabels.includes(CONFIG.featuredKey))
+    console.log('featuredPosts', featuredPosts)
 
     return {
         featuredPosts: featuredPosts,
@@ -46,11 +47,10 @@ async function getPosts(): Promise<Array<PostMeta>> {
                 return prev
             }, {})
             return {
-                featured: !!(metadata.featured?.toLowerCase() == "true"),
                 lastUpdated: metadata.lastUpdated,
                 route: `${base}${CONFIG.pathToPostMdDir}/${pageName}`,
                 name: metadata.name,
-                topicLabels: metadata.topicLabels.split(',')
+                topicLabels: metadata.topicLabels.split(',').map(label => label.trim())
             }
         } catch(e) {
             console.error("Error parsing post markdown file. Pagename: ", pageName, e);

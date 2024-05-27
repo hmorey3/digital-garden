@@ -13,7 +13,7 @@
 
 <div class="app">
 	<div class="" style="width: 80%; margin: 0 auto"><Header /></div>
-	<div style="width: 80%; margin: 0 auto" class="grid grid-cols-3 gap-10">
+	<div style="width: 80%; margin: 0 auto" class="grid grid-cols-3 gap-5">
 		<div class="col-span-3 p-6 shadow bg-violet-400 text-white rounded-lg">{$pageTitle}</div>
 		<div class="col-span-2">
 			<main style="padding: 0">

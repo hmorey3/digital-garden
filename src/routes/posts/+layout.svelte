@@ -20,7 +20,9 @@
         <p class="text-xs text-gray-400">
             Last Updated: {data.metadata?.lastUpdated}
         </p>
-        <slot></slot>
+        <div class="text-left" style="text-align: left !important">
+            <slot></slot>
+        </div>
     {:else}
         <p>Error loading post</p>
     {/if}
