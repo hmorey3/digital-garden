@@ -19,8 +19,8 @@
 	</nav>
 
 	<div class="my-8">
-		<p class="text-3xl text-black font-semibold">Digital Garden</p>
-		<p>A work-in-progress collection of personal notes and ideas.</p>
+		<p class="text-3xl text-black font-semibold">Silver's Chronicles</p>
+		<p>A digital garden of personal notes and ideas.</p>
 	</div>
 
 </header>

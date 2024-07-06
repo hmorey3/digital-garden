@@ -2,17 +2,14 @@
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
-## Creating a project
+## Adding Content
 
-If you're seeing this, you've probably already done this step. Congrats!
+Add a new blog post by adding a new md page under src/routes/posts/md/<your-post-name>/+page.svelte.md
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## How the site work
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+This is a static site. At build time routes/+layout.server.ts parses the src/routes/posts/md/ markdown files into metadata, which is put in a svelte store. Markdown labels are used to categorize posts - the "Name" metadata is the human-readable name shown in post links. The name of the folder is the slug for the route. Mdsvex is used to render markdown as a svelte component.
+
 
 ## Developing
 
